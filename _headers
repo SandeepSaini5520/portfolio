@@ -1,11 +1,13 @@
-/*.js
-  Content-Type: application/javascript
+/\*.js
+Content-Type: application/javascript
 
-/js/*.js
-  Content-Type: application/javascript
+/js/\*.js
+Content-Type: application/javascript
 
-/assets/*.js
-  Content-Type: application/javascript
+/assets/\*.js
+Content-Type: application/javascript
 
-/*/*.js
-  Content-Type: application/javascript
+/_/_.js
+Content-Type: application/javascript
+
+# Make sure this file is in your publish directory (e.g., build/\_headers or dist/\_headers)
