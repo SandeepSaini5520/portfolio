@@ -1,27 +1,30 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Download, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
-import heroImage from '@/assets/hero-bg.jpg';
-import avatar from '@/assets/sandeep-avatar.jpg';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Download, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
+import heroImage from "@/assets/hero-bg.jpg";
+import avatar from "@/assets/sandeep-avatar.jpg";
 
 const HeroSection = () => {
   const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/SandeepSaini_Resume.pdf';
-    link.download = 'SandeepSaini_Resume.pdf';
+    const link = document.createElement("a");
+    link.href = "/SandeepSaini_Resume.pdf";
+    link.download = "SandeepSaini_Resume.pdf";
     link.click();
   };
 
   const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
+        <img
+          src={heroImage}
           alt="Professional workspace background"
           className="w-full h-full object-cover"
         />
@@ -52,8 +55,8 @@ const HeroSection = () => {
                 Frontend Developer
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                Building fast, accessible, and responsive web apps with 2+ years of experience 
-                in React, Next.js, and modern web technologies.
+                Building fast, accessible, and responsive web apps with 2+ years
+                of experience in React, Next.js, and modern web technologies.
               </p>
             </motion.div>
 
@@ -63,7 +66,7 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
-              <Button 
+              <Button
                 onClick={handleDownloadResume}
                 className="btn-gradient text-white font-medium px-6 py-3"
                 size="lg"
@@ -71,8 +74,8 @@ const HeroSection = () => {
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={scrollToContact}
                 className="border-primary text-primary hover:bg-primary hover:text-white"
                 size="lg"
@@ -94,7 +97,11 @@ const HeroSection = () => {
                 className="hover:text-primary hover:bg-primary/10"
                 asChild
               >
-                <a href="https://linkedin.com/in/sandeep-saini-143287231" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://linkedin.com/in/sandeep-saini-143287231"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Linkedin className="h-5 w-5" />
                 </a>
               </Button>
@@ -104,7 +111,11 @@ const HeroSection = () => {
                 className="hover:text-primary hover:bg-primary/10"
                 asChild
               >
-                <a href="https://github.com/sandeepsaini" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/sandeepsaini"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="h-5 w-5" />
                 </a>
               </Button>
@@ -128,13 +139,10 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex justify-center lg:justify-end"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative"
-            >
+            <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-                <img 
-                  src={avatar} 
+                <img
+                  src={avatar}
                   alt="Sandeep Saini - Frontend Developer"
                   className="w-full h-full object-cover"
                 />

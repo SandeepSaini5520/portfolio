@@ -1,19 +1,32 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin, Linkedin, Github, Send, Download } from 'lucide-react';
-import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Send,
+  Download,
+} from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from "emailjs-com";
+
+const EMAILJS_SERVICE_ID = "service_j4epz7i";
+const EMAILJS_TEMPLATE_ID = "template_kr95bpq";
+const EMAILJS_USER_ID = "MA7W3Op1QrNpjqhA4"; // or public key
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const { toast } = useToast();
 
@@ -22,66 +35,76 @@ const ContactSection = () => {
       icon: <Mail className="h-6 w-6" />,
       label: "Email",
       value: "official.sandeepsaini05@gmail.com",
-      href: "mailto:official.sandeepsaini05@gmail.com"
+      href: "mailto:official.sandeepsaini05@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6" />,
       label: "Phone",
       value: "+91 8295034479",
-      href: "tel:+918295034479"
+      href: "tel:+918295034479",
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       label: "Location",
       value: "Noida, India 201301",
-      href: null
+      href: null,
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       label: "LinkedIn",
       value: "sandeep-saini-143287231",
-      href: "https://linkedin.com/in/sandeep-saini-143287231"
-    }
+      href: "https://linkedin.com/in/sandeep-saini-143287231",
+    },
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio Website');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoLink = `mailto:official.sandeepsaini05@gmail.com?subject=${subject}&body=${body}`;
-    
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Opening email client...",
-      description: "Your default email application will open with the message pre-filled.",
-    });
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        EMAILJS_USER_ID
+      );
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/SandeepSaini_Resume.pdf';
-    link.download = 'SandeepSaini_Resume.pdf';
+    const link = document.createElement("a");
+    link.href = "/SandeepSaini_Resume.pdf";
+    link.download = "SandeepSaini_Resume.pdf";
     link.click();
   };
 
@@ -99,8 +122,8 @@ const ContactSection = () => {
             Let's Work Together
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ready to bring your ideas to life? I'm always excited to discuss new opportunities 
-            and collaborate on innovative projects.
+            Ready to bring your ideas to life? I'm always excited to discuss new
+            opportunities and collaborate on innovative projects.
           </p>
         </motion.div>
 
@@ -119,8 +142,9 @@ const ContactSection = () => {
                   Get in Touch
                 </h3>
                 <p className="text-muted-foreground mb-8">
-                  I'm based in Noida, India, and I'm always open to discussing new opportunities, 
-                  freelance projects, or just having a chat about frontend development.
+                  I'm based in Noida, India, and I'm always open to discussing
+                  new opportunities, freelance projects, or just having a chat
+                  about frontend development.
                 </p>
 
                 <div className="space-y-6">
@@ -137,12 +161,22 @@ const ContactSection = () => {
                         {info.icon}
                       </div>
                       <div>
-                        <p className="font-medium text-foreground">{info.label}</p>
+                        <p className="font-medium text-foreground">
+                          {info.label}
+                        </p>
                         {info.href ? (
-                          <a 
+                          <a
                             href={info.href}
-                            target={info.href.startsWith('http') ? '_blank' : undefined}
-                            rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            target={
+                              info.href.startsWith("http")
+                                ? "_blank"
+                                : undefined
+                            }
+                            rel={
+                              info.href.startsWith("http")
+                                ? "noopener noreferrer"
+                                : undefined
+                            }
                             className="text-primary hover:underline"
                           >
                             {info.value}
@@ -157,7 +191,9 @@ const ContactSection = () => {
 
                 {/* Social Links */}
                 <div className="mt-8 pt-8 border-t">
-                  <h4 className="font-semibold text-foreground mb-4">Follow Me</h4>
+                  <h4 className="font-semibold text-foreground mb-4">
+                    Follow Me
+                  </h4>
                   <div className="flex gap-4">
                     <Button
                       variant="outline"
@@ -165,7 +201,11 @@ const ContactSection = () => {
                       className="hover:bg-primary hover:text-white hover:border-primary"
                       asChild
                     >
-                      <a href="https://linkedin.com/in/sandeep-saini-143287231" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://linkedin.com/in/sandeep-saini-143287231"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </Button>
@@ -175,7 +215,11 @@ const ContactSection = () => {
                       className="hover:bg-primary hover:text-white hover:border-primary"
                       asChild
                     >
-                      <a href="https://github.com/sandeepsaini" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://github.com/sandeepsaini"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-5 w-5" />
                       </a>
                     </Button>
@@ -194,7 +238,7 @@ const ContactSection = () => {
 
                 {/* Resume Download */}
                 <div className="mt-8 pt-8 border-t">
-                  <Button 
+                  <Button
                     onClick={handleDownloadResume}
                     className="w-full btn-gradient text-white font-medium"
                   >
@@ -218,11 +262,14 @@ const ContactSection = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-6">
                   Send a Message
                 </h3>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="name" className="text-foreground font-medium">
+                      <Label
+                        htmlFor="name"
+                        className="text-foreground font-medium"
+                      >
                         Name *
                       </Label>
                       <Input
@@ -236,7 +283,10 @@ const ContactSection = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email" className="text-foreground font-medium">
+                      <Label
+                        htmlFor="email"
+                        className="text-foreground font-medium"
+                      >
                         Email *
                       </Label>
                       <Input
@@ -251,9 +301,12 @@ const ContactSection = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
-                    <Label htmlFor="subject" className="text-foreground font-medium">
+                    <Label
+                      htmlFor="subject"
+                      className="text-foreground font-medium"
+                    >
                       Subject
                     </Label>
                     <Input
@@ -265,9 +318,12 @@ const ContactSection = () => {
                       placeholder="What's this about?"
                     />
                   </div>
-                  
+
                   <div>
-                    <Label htmlFor="message" className="text-foreground font-medium">
+                    <Label
+                      htmlFor="message"
+                      className="text-foreground font-medium"
+                    >
                       Message *
                     </Label>
                     <Textarea
@@ -280,9 +336,9 @@ const ContactSection = () => {
                       required
                     />
                   </div>
-                  
-                  <Button 
-                    type="submit" 
+
+                  <Button
+                    type="submit"
                     className="w-full btn-gradient text-white font-medium py-3"
                     size="lg"
                   >
@@ -292,7 +348,8 @@ const ContactSection = () => {
                 </form>
 
                 <p className="text-sm text-muted-foreground mt-4 text-center">
-                  This form will open your email client with the message pre-filled.
+                  This form will open your email client with the message
+                  pre-filled.
                 </p>
               </CardContent>
             </Card>
