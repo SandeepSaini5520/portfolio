@@ -70,8 +70,8 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-accent">
-      <div className="container mx-auto px-4 py-20 sm:py-10">
+    <section id="experience" className="py-3 bg-[#F5F6FA]">
+      <div className="container mx-auto px-4 py-5 sm:py-3">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,10 +79,10 @@ const ExperienceSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16 sm:mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 sm:text-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1F2D5A] mb-4 sm:text-2xl">
             Experience & Education
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto sm:text-base">
+          <p className="text-[#2E2E2E] max-w-2xl mx-auto sm:text-base">
             Professional journey and continuous learning in frontend development
           </p>
         </motion.div>
@@ -94,27 +94,25 @@ const ExperienceSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="border-0 shadow-lg sm:mb-8">
+            <Card className="border-0 shadow-lg sm:mb-8 bg-white">
               <CardHeader className="pb-4 sm:pb-2">
                 <div className="flex items-start justify-between flex-wrap gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
-                      <Building className="h-6 w-6 text-primary" />
+                    <h3 className="text-2xl font-bold text-[#1F2D5A] flex items-center gap-2">
+                      <Building className="h-6 w-6 text-[#4EA5D9]" />
                       {experience.company}
                     </h3>
-                    <p className="text-muted-foreground">
-                      {experience.subtitle}
-                    </p>
-                    <p className="text-xl font-semibold text-primary mt-2">
+                    <p className="text-[#2E2E2E]">{experience.subtitle}</p>
+                    <p className="text-xl font-semibold text-[#2ECC71] mt-2">
                       {experience.position}
                     </p>
                   </div>
                   <div className="text-right">
-                    <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                    <div className="flex items-center gap-2 text-[#4EA5D9] mb-1">
                       <Calendar className="h-4 w-4" />
                       {experience.duration}
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-[#4EA5D9]">
                       <MapPin className="h-4 w-4" />
                       {experience.location}
                     </div>
@@ -122,7 +120,7 @@ const ExperienceSection = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-8 sm:mb-4">
+                <p className="text-[#2E2E2E] mb-8 sm:mb-4">
                   {experience.description}
                 </p>
                 <div className="space-y-8 sm:space-y-4">
@@ -148,7 +146,7 @@ const ExperienceSection = () => {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="bg-primary/10 text-primary"
+                            className="bg-[#4EA5D9]/10 text-[#4EA5D9]"
                           >
                             {tech}
                           </Badge>
@@ -168,7 +166,7 @@ const ExperienceSection = () => {
                             viewport={{ once: true }}
                             className="flex items-start gap-2 text-muted-foreground"
                           >
-                            <span className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
+                            <span className="w-2 h-2 bg-[#2ECC71] rounded-full mt-2 flex-shrink-0" />
                             {achievement}
                           </motion.li>
                         ))}
@@ -186,30 +184,30 @@ const ExperienceSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="border-0 shadow-lg bg-gradient-to-r from-primary/5 to-secondary/5 sm:mb-8">
+            <Card className="border-0 shadow-lg bg-gradient-to-r from-[#1F2D5A]/5 to-[#4EA5D9]/5 sm:mb-8">
               <CardContent className="p-8 sm:p-4">
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2 sm:text-xl">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                <h3 className="text-2xl font-bold text-[#1F2D5A] mb-6 flex items-center gap-2 sm:text-xl">
+                  <div className="w-8 h-8 bg-[#2ECC71] rounded-full flex items-center justify-center">
                     <span className="text-white font-bold text-sm">🎓</span>
                   </div>
                   Education
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6 sm:grid-cols-1 sm:gap-4">
                   <div>
-                    <h4 className="text-xl font-semibold text-foreground mb-2">
+                    <h4 className="text-xl font-semibold text-[#1F2D5A] mb-2">
                       {education.degree}
                     </h4>
-                    <p className="text-muted-foreground mb-1">
+                    <p className="text-[#2E2E2E] mb-1">
                       {education.institution}
                     </p>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-[#2E2E2E] text-sm">
                       {education.location}
                     </p>
                   </div>
                   <div className="text-right">
                     <Badge
                       variant="outline"
-                      className="text-lg px-4 py-2 border-primary text-primary"
+                      className="text-lg px-4 py-2 border-[#2ECC71] text-[#2ECC71]"
                     >
                       {education.year}
                     </Badge>

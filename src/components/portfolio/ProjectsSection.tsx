@@ -73,8 +73,8 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-background">
-      <div className="container mx-auto px-4 py-20 sm:py-10">
+    <section id="projects" className="py-3 bg-gray-300">
+      <div className="container mx-auto px-4 py-3 sm:py-5">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,10 +132,10 @@ const ProjectsSection = () => {
                 <CardContent className="space-y-6">
                   {/* Technologies */}
                   <div>
-                    <h4 className="font-semibold text-foreground mb-3">
+                    <h4 className="font-semibold text-foreground mt-3">
                       Technologies Used
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mt-3">
                       {project.technologies.map((tech) => (
                         <Badge
                           key={tech}
@@ -193,7 +193,7 @@ const ProjectsSection = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
+                  {/* <div className="flex gap-3 pt-4">
                     <Button
                       variant="outline"
                       size="sm"
@@ -211,7 +211,7 @@ const ProjectsSection = () => {
                     >
                       <Github className="h-4 w-4" />
                     </Button>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             </motion.div>

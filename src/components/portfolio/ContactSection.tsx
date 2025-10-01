@@ -109,8 +109,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-accent">
-      <div className="container mx-auto px-4 py-20 sm:py-10">
+    <section id="contact" className=" bg-accent">
+      <div className="container mx-auto px-4 py-5 sm:py-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ const ContactSection = () => {
             className="space-y-8 sm:space-y-4 w-full"
           >
             <Card className="border-0 shadow-lg sm:mb-6 w-full max-w-full">
-              <CardContent className="p-[11px] sm:p-4">
+              <CardContent className="p-8 sm:p-4">
                 <h3 className="text-2xl font-bold text-foreground mb-6 sm:text-xl">
                   Get in Touch
                 </h3>
@@ -190,7 +190,7 @@ const ContactSection = () => {
                   ))}
                 </div>
                 {/* Social Links */}
-                <div className="mt-8 pt-8 border-t">
+                {/* <div className="mt-8 pt-8 border-t">
                   <h4 className="font-semibold text-foreground mb-4 sm:text-base">
                     Follow Me
                   </h4>
@@ -234,7 +234,7 @@ const ContactSection = () => {
                       </a>
                     </Button>
                   </div>
-                </div>
+                </div> */}
                 {/* Resume Download */}
                 <div className="mt-8 pt-8 border-t">
                   <Button
@@ -328,19 +328,21 @@ const ContactSection = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="mt-2 min-h-[120px] w-full"
+                      className="mt-1 w-full"
                       placeholder="Tell me about your project or just say hello!"
                       required
                     />
                   </div>
-                  <Button
-                    type="submit"
-                    className="w-full btn-gradient text-white font-medium py-3 sm:text-base sm:py-2"
-                    size="lg"
-                  >
-                    <Send className="mr-2 h-5 w-5" />
-                    Send Message
-                  </Button>
+                  <div className="mt-8 pt-8 border-t">
+                    <Button
+                      type="submit"
+                      className="w-full btn-gradient text-white font-medium py-3 sm:text-base sm:py-2"
+                      size="lg"
+                    >
+                      <Send className="mr-2 h-5 w-5 " />
+                      Send Message
+                    </Button>
+                  </div>
                 </form>
                 <p className="text-sm text-muted-foreground mt-4 text-center sm:text-xs">
                   This form will open your email client with the message

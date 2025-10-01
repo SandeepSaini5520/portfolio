@@ -44,7 +44,7 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="py-20"
+      className="py-10"
       style={{
         background: "linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%)", // high-contrast light gradient
       }}
@@ -165,10 +165,10 @@ const SkillsSection = () => {
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:grid-cols-1 sm:gap-4">
                 {[
-                  { skill: "React & Next.js", level: 90 },
-                  { skill: "TypeScript", level: 85 },
-                  { skill: "Accessibility", level: 88 },
-                  { skill: "Performance", level: 87 },
+                  { skill: "React & Javascript", level: 90 },
+                  { skill: "HTML5 & CSS3", level: 85 },
+                  { skill: "Nextjs", level: 88 },
+                  { skill: "Accessibility & Performance", level: 87 },
                 ].map((item, index) => (
                   <motion.div
                     key={item.skill}

@@ -27,8 +27,8 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-accent">
-      <div className="container mx-auto px-4 py-20 sm:py-10">
+    <section id="about" className=" py-2 md:py-3 bg-[#F5F6FA]">
+      <div className="container mx-auto px-4 py-2 sm:py-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,10 +36,10 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16 sm:mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 sm:text-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1F2D5A] mb-4 sm:text-2xl">
             About Me
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto sm:text-base">
+          <p className="text-[#2E2E2E] max-w-2xl mx-auto sm:text-base">
             Passionate frontend developer dedicated to creating exceptional user
             experiences
           </p>
@@ -52,12 +52,12 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="border-0 shadow-lg sm:mb-8">
-              <CardContent className="p-8 sm:p-4">
-                <h3 className="text-2xl font-semibold text-foreground mb-6 sm:text-xl">
+            <Card className="border-0 shadow-lg sm:mb-8 bg-white">
+              <CardContent className="p-1 sm:p-4">
+                <h3 className="text-2xl font-semibold text-[#1F2D5A] mb-6 sm:text-xl">
                   Frontend Developer & Problem Solver
                 </h3>
-                <div className="space-y-4 text-muted-foreground sm:text-base">
+                <div className="space-y-4 text-[#2E2E2E] sm:text-base">
                   <p>
                     I'm a passionate Frontend Developer with 2 years of
                     experience in creating responsive, accessible, and
@@ -110,15 +110,15 @@ const AboutSection = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Card className="card-hover border-0 shadow-md bg-card">
+                <Card className="card-hover border-0 shadow-md bg-white">
                   <CardContent className="p-6 text-center">
-                    <div className="text-primary mb-4 flex justify-center">
+                    <div className="text-[#4EA5D9] mb-4 flex justify-center">
                       {highlight.icon}
                     </div>
-                    <h4 className="font-semibold text-foreground mb-2">
+                    <h4 className="font-semibold text-[#1F2D5A] mb-2">
                       {highlight.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-[#2E2E2E]">
                       {highlight.description}
                     </p>
                   </CardContent>

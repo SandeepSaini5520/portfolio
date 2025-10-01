@@ -10,7 +10,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background border-t">
+    <footer className="bg-[#F5F6FA] border-t">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col md:grid md:grid-cols-3 gap-8 items-center md:items-center">
           {/* Brand & Description */}
@@ -21,10 +21,10 @@ const Footer = () => {
             viewport={{ once: true }}
             className="w-full text-center md:text-left mb-6 md:mb-0"
           >
-            <h3 className="text-2xl font-bold text-gradient mb-2">
+            <h3 className="text-2xl font-bold text-[#1F2D5A] mb-2">
               Sandeep Saini
             </h3>
-            <p className="text-muted-foreground text-base md:text-lg">
+            <p className="text-[#2E2E2E] text-base md:text-lg">
               Frontend Developer specializing in React & Next.js
             </p>
           </motion.div>
@@ -37,7 +37,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="w-full text-center mb-6 md:mb-0"
           >
-            <h4 className="font-semibold text-foreground mb-4 text-base md:text-lg">
+            <h4 className="font-semibold text-[#1F2D5A] mb-4 text-base md:text-lg">
               Quick Links
             </h4>
             <div className="flex flex-wrap justify-center gap-4">
@@ -55,7 +55,7 @@ const Footer = () => {
                       .querySelector(link.href)
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm md:text-base"
+                  className="text-[#4EA5D9] hover:text-[#2ECC71] transition-colors text-sm md:text-base"
                 >
                   {link.label}
                 </button>
@@ -75,7 +75,7 @@ const Footer = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary hover:bg-primary/10"
+                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
                 asChild
               >
                 <a
@@ -89,7 +89,7 @@ const Footer = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary hover:bg-primary/10"
+                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
                 asChild
               >
                 <a
@@ -103,7 +103,7 @@ const Footer = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary hover:bg-primary/10"
+                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
                 asChild
               >
                 <a href="mailto:official.sandeepsaini05@gmail.com">
@@ -115,7 +115,7 @@ const Footer = () => {
               onClick={scrollToTop}
               variant="outline"
               size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-white"
+              className="border-[#2ECC71] text-[#2ECC71] hover:bg-[#2ECC71] hover:text-white"
             >
               <ArrowUp className="mr-2 h-4 w-4" />
               Back to Top
@@ -131,9 +131,9 @@ const Footer = () => {
           viewport={{ once: true }}
           className="mt-8 pt-8 border-t text-center"
         >
-          <p className="text-muted-foreground flex flex-col md:flex-row items-center justify-center gap-2 text-sm md:text-base">
+          <p className="text-[#2E2E2E] flex flex-col md:flex-row items-center justify-center gap-2 text-sm md:text-base">
             © {currentYear} Sandeep Saini. Made with
-            <Heart className="h-4 w-4 text-red-500" fill="currentColor" />
+            <Heart className="h-4 w-4 text-[#2ECC71]" fill="currentColor" />
             and lots of ☕
           </p>
         </motion.div>

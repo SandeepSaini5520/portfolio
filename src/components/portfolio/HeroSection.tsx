@@ -19,7 +19,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F6FA]"
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
@@ -28,11 +28,11 @@ const HeroSection = () => {
           alt="Professional workspace background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F5F6FA]/90 via-[#F5F6FA]/70 to-[#4EA5D9]/20" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className="relative z-10 container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
@@ -47,14 +47,14 @@ const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mb-6"
             >
-              <p className="text-primary font-medium mb-2">Hello, I'm</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
+              <p className="text-[#1F2D5A] font-medium mb-2">Hello, I'm</p>
+              <h1 className="text-4xl md:text-6xl font-bold text-[#1F2D5A] mb-4">
                 Sandeep Saini
               </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold text-gradient mb-4">
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#4EA5D9] mb-4">
                 Frontend Developer
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl">
+              <p className="text-lg text-[#2E2E2E] mt-2 max-w-2xl">
                 Building fast, accessible, and responsive web apps with 2+ years
                 of experience in React, Next.js, and modern web technologies.
               </p>
@@ -68,16 +68,16 @@ const HeroSection = () => {
             >
               <Button
                 onClick={handleDownloadResume}
-                className="btn-gradient text-white font-medium px-6 py-3"
+                className="btn-cta text-white font-medium px-6 py-3"
                 size="lg"
               >
                 <Download className="mr-2 h-5 w-5" />
-                Download Resume
+                Hire Me
               </Button>
               <Button
                 variant="outline"
                 onClick={scrollToContact}
-                className="border-primary text-primary hover:bg-primary hover:text-white"
+                className="border-[#4EA5D9] text-[#4EA5D9] hover:bg-[#4EA5D9] hover:text-white"
                 size="lg"
               >
                 <Mail className="mr-2 h-5 w-5" />
@@ -94,7 +94,7 @@ const HeroSection = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary hover:bg-primary/10"
+                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
                 asChild
               >
                 <a
@@ -108,7 +108,7 @@ const HeroSection = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary hover:bg-primary/10"
+                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
                 asChild
               >
                 <a
@@ -122,7 +122,7 @@ const HeroSection = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary hover:bg-primary/10"
+                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
                 asChild
               >
                 <a href="mailto:official.sandeepsaini05@gmail.com">
