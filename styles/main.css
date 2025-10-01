@@ -4,6 +4,7 @@ body {
   color: #1a1a1a;
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Hero section contrast */

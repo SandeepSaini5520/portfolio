@@ -110,44 +110,43 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 bg-accent">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 py-20 sm:py-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 sm:mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 sm:text-2xl">
             Let's Work Together
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto sm:text-base">
             Ready to bring your ideas to life? I'm always excited to discuss new
             opportunities and collaborate on innovative projects.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 sm:grid-cols-1 sm:gap-6">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 sm:space-y-4 w-full"
           >
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">
+            <Card className="border-0 shadow-lg sm:mb-6 w-full max-w-full">
+              <CardContent className="p-[11px] sm:p-4">
+                <h3 className="text-2xl font-bold text-foreground mb-6 sm:text-xl">
                   Get in Touch
                 </h3>
-                <p className="text-muted-foreground mb-8">
+                <p className="text-muted-foreground mb-8 sm:mb-4 sm:text-base">
                   I'm based in Noida, India, and I'm always open to discussing
                   new opportunities, freelance projects, or just having a chat
                   about frontend development.
                 </p>
-
-                <div className="space-y-6">
+                <div className="space-y-6 sm:space-y-4">
                   {contactInfo.map((info, index) => (
                     <motion.div
                       key={info.label}
@@ -155,13 +154,13 @@ const ContactSection = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-4"
+                      className="flex items-center gap-4 sm:gap-2"
                     >
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary sm:w-10 sm:h-10">
                         {info.icon}
                       </div>
-                      <div>
-                        <p className="font-medium text-foreground">
+                      <div className="truncate max-w-[70vw]">
+                        <p className="font-medium text-foreground sm:text-base">
                           {info.label}
                         </p>
                         {info.href ? (
@@ -177,24 +176,25 @@ const ContactSection = () => {
                                 ? "noopener noreferrer"
                                 : undefined
                             }
-                            className="text-primary hover:underline"
+                            className="text-primary hover:underline break-all"
                           >
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="text-muted-foreground break-all">
+                            {info.value}
+                          </p>
                         )}
                       </div>
                     </motion.div>
                   ))}
                 </div>
-
                 {/* Social Links */}
                 <div className="mt-8 pt-8 border-t">
-                  <h4 className="font-semibold text-foreground mb-4">
+                  <h4 className="font-semibold text-foreground mb-4 sm:text-base">
                     Follow Me
                   </h4>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 flex-wrap">
                     <Button
                       variant="outline"
                       size="icon"
@@ -235,12 +235,11 @@ const ContactSection = () => {
                     </Button>
                   </div>
                 </div>
-
                 {/* Resume Download */}
                 <div className="mt-8 pt-8 border-t">
                   <Button
                     onClick={handleDownloadResume}
-                    className="w-full btn-gradient text-white font-medium"
+                    className="w-full btn-gradient text-white font-medium sm:text-base sm:py-2"
                   >
                     <Download className="mr-2 h-5 w-5" />
                     Download My Resume
@@ -256,19 +255,19 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
+            className="w-full"
           >
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">
+            <Card className="border-0 shadow-lg sm:mb-6 w-full max-w-full">
+              <CardContent className="p-8 sm:p-4">
+                <h3 className="text-2xl font-bold text-foreground mb-6 sm:text-xl">
                   Send a Message
                 </h3>
-
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-6 sm:grid-cols-1 sm:gap-4">
                     <div>
                       <Label
                         htmlFor="name"
-                        className="text-foreground font-medium"
+                        className="text-foreground font-medium sm:text-base"
                       >
                         Name *
                       </Label>
@@ -277,7 +276,7 @@ const ContactSection = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="mt-2"
+                        className="mt-2 w-full"
                         placeholder="Your full name"
                         required
                       />
@@ -285,7 +284,7 @@ const ContactSection = () => {
                     <div>
                       <Label
                         htmlFor="email"
-                        className="text-foreground font-medium"
+                        className="text-foreground font-medium sm:text-base"
                       >
                         Email *
                       </Label>
@@ -295,17 +294,16 @@ const ContactSection = () => {
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="mt-2"
+                        className="mt-2 w-full"
                         placeholder="your.email@example.com"
                         required
                       />
                     </div>
                   </div>
-
                   <div>
                     <Label
                       htmlFor="subject"
-                      className="text-foreground font-medium"
+                      className="text-foreground font-medium sm:text-base"
                     >
                       Subject
                     </Label>
@@ -314,15 +312,14 @@ const ContactSection = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="mt-2"
+                      className="mt-2 w-full"
                       placeholder="What's this about?"
                     />
                   </div>
-
                   <div>
                     <Label
                       htmlFor="message"
-                      className="text-foreground font-medium"
+                      className="text-foreground font-medium sm:text-base"
                     >
                       Message *
                     </Label>
@@ -331,23 +328,21 @@ const ContactSection = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="mt-2 min-h-[120px]"
+                      className="mt-2 min-h-[120px] w-full"
                       placeholder="Tell me about your project or just say hello!"
                       required
                     />
                   </div>
-
                   <Button
                     type="submit"
-                    className="w-full btn-gradient text-white font-medium py-3"
+                    className="w-full btn-gradient text-white font-medium py-3 sm:text-base sm:py-2"
                     size="lg"
                   >
                     <Send className="mr-2 h-5 w-5" />
                     Send Message
                   </Button>
                 </form>
-
-                <p className="text-sm text-muted-foreground mt-4 text-center">
+                <p className="text-sm text-muted-foreground mt-4 text-center sm:text-xs">
                   This form will open your email client with the message
                   pre-filled.
                 </p>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import avatar from "@/assets/sandeep-avatar.jpg";
+import sandeepAvatar from "@/assets/sandeep-avatar.jpg";
 
 const HeroSection = () => {
   const handleDownloadResume = () => {
@@ -142,7 +142,7 @@ const HeroSection = () => {
             <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
-                  src={avatar}
+                  src={sandeepAvatar}
                   alt="Sandeep Saini - Frontend Developer"
                   className="w-full h-full object-cover"
                 />

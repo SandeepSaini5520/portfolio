@@ -55,16 +55,16 @@ const SkillsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 sm:mb-8"
         >
           <h2
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className="text-3xl md:text-4xl font-bold mb-4 sm:text-2xl"
             style={{ color: "#1a202c" }} // strong dark text
           >
             Skills & Technologies
           </h2>
           <p
-            className="max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto sm:text-base"
             style={{ color: "#374151" }} // medium-dark for subtitle
           >
             A comprehensive toolkit for building modern, scalable web
@@ -72,7 +72,7 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:grid-cols-1 sm:gap-4">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
@@ -147,7 +147,7 @@ const SkillsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-16"
+          className="mt-16 sm:mt-8"
         >
           <Card
             className="border-0 shadow-lg"
@@ -156,14 +156,14 @@ const SkillsSection = () => {
               color: "#1a202c",
             }}
           >
-            <CardContent className="p-8">
+            <CardContent className="p-8 sm:p-4">
               <h3
-                className="text-2xl font-semibold text-center mb-8"
+                className="text-2xl font-semibold text-center mb-8 sm:text-xl"
                 style={{ color: "#1a202c" }}
               >
                 Core Expertise
               </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:grid-cols-1 sm:gap-4">
                 {[
                   { skill: "React & Next.js", level: 90 },
                   { skill: "TypeScript", level: 85 },
