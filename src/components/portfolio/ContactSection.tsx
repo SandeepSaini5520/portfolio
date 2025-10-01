@@ -137,11 +137,11 @@ const ContactSection = () => {
             className="space-y-8 sm:space-y-4 w-full"
           >
             <Card className="border-0 shadow-lg sm:mb-6 w-full max-w-full">
-              <CardContent className="p-8 sm:p-4">
-                <h3 className="text-2xl font-bold text-foreground mb-6 sm:text-xl">
+              <CardContent className="p-2 sm:p-4">
+                <h3 className="text-2xl text-center font-bold text-foreground mb-6 sm:text-xl">
                   Get in Touch
                 </h3>
-                <p className="text-muted-foreground mb-8 sm:mb-4 sm:text-base">
+                <p className="mb-8 sm:mb-4 sm:text-base">
                   I'm based in Noida, India, and I'm always open to discussing
                   new opportunities, freelance projects, or just having a chat
                   about frontend development.
