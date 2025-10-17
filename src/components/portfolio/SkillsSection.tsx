@@ -46,7 +46,7 @@ const SkillsSection = () => {
       id="skills"
       className="py-10"
       style={{
-        background: "linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%)", // high-contrast light gradient
+        background: "linear-gradient(100%)", // high-contrast light gradient
       }}
     >
       <div className="container mx-auto px-4">
@@ -84,8 +84,7 @@ const SkillsSection = () => {
               <Card
                 className="card-hover h-full border-0 shadow-lg"
                 style={{
-                  background: "#fff", // white card for max contrast
-                  color: "#1a202c",
+                  background: "#DBDBDB", // white card for max contrast
                 }}
               >
                 <CardContent className="p-6">
@@ -111,23 +110,16 @@ const SkillsSection = () => {
                       >
                         <motion.div
                           whileHover={{ scale: 1.2 }}
-                          className="w-3 h-3 rounded-full"
+                          className="w-1 h-1 rounded-full"
                           style={{
-                            background:
-                              category.color === "bg-primary"
-                                ? "#2563eb" // blue-600
-                                : "#d97706", // amber-600
+                            background: "#000000",
                           }}
                         />
                         <Badge
                           variant="secondary"
                           className="text-sm font-medium transition-colors"
                           style={{
-                            background:
-                              category.color === "bg-primary"
-                                ? "#2563eb"
-                                : "#d97706",
-                            color: "#fff",
+                            background: "#000000",
                           }}
                         >
                           {skill}
@@ -152,7 +144,7 @@ const SkillsSection = () => {
           <Card
             className="border-0 shadow-lg"
             style={{
-              background: "linear-gradient(90deg, #e0e7ff 0%, #fef3c7 100%)", // blue to amber gradient
+              background: "#C4C4C4",
               color: "#1a202c",
             }}
           >

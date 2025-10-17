@@ -1,180 +1,146 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Download, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
+import { Mail, Github, Linkedin, PhoneCall } from "lucide-react";
 import sandeepAvatar from "@/assets/sandeep-avatar.jpg";
 
+const COLORS = {
+  gray: "#C4C4C4",
+  black: "#000000",
+  white: "#ffffff",
+};
+
+const containerVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const avatarVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.3 } },
+};
+
 const HeroSection = () => {
-  const handleDownloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/SandeepSaini_Resume.pdf";
-    link.download = "SandeepSaini_Resume.pdf";
-    link.click();
-  };
-
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F6FA]"
+      aria-label="Hero Section introducing Sandeep Saini"
+      className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
     >
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Professional workspace background"
-          className="w-full h-full object-cover"
+      {/* Left diagonal gray background */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundColor: COLORS.gray,
+            clipPath: "polygon(0 0, 50% 0, 40% 100%, 0% 100%)",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F5F6FA]/90 via-[#F5F6FA]/70 to-[#4EA5D9]/20" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4">
+      {/* Main content container */}
+      <div className="relative z-10 container mx-auto px-6 py-20 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+          {/* Left text content */}
+          <motion.header
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-black"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-6"
+            <p className="text-xl mb-2 font-medium">Hi, I am</p>
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold mb-2 overflow-hidden whitespace-nowrap inline-block"
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{
+                clipPath: [
+                  "inset(0 100% 0 0)",
+                  "inset(0 0% 0 0)",
+                  "inset(0 0% 0 0)",
+                  "inset(0 100% 0 0)",
+                ],
+              }}
+              transition={{
+                duration: 4,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "loop",
+                times: [0, 0.3, 0.7, 1],
+              }}
             >
-              <p className="text-[#1F2D5A] font-medium mb-2">Hello, I'm</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-[#1F2D5A] mb-4">
-                Sandeep Saini
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#4EA5D9] mb-4">
-                Frontend Developer
-              </h2>
-              <p className="text-lg text-[#2E2E2E] mt-2 max-w-2xl">
-                Building fast, accessible, and responsive web apps with 2+ years
-                of experience in React, Next.js, and modern web technologies.
-              </p>
-            </motion.div>
+              Sandeep Saini
+            </motion.h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
-            >
-              <Button
-                onClick={handleDownloadResume}
-                className="btn-cta text-white font-medium px-6 py-3"
-                size="lg"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Hire Me
-              </Button>
-              <Button
-                variant="outline"
-                onClick={scrollToContact}
-                className="border-[#4EA5D9] text-[#4EA5D9] hover:bg-[#4EA5D9] hover:text-white"
-                size="lg"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Contact Me
-              </Button>
-            </motion.div>
+            <p className="text-md font-medium text-gray-600 mb-3">
+              Front-end Developer
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex gap-4 justify-center lg:justify-start"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
-                asChild
-              >
+            {/* Social Icons */}
+            <nav aria-label="Social media links" className="flex gap-4">
+              {[
+                {
+                  href: "mailto:official.sandeepsaini05@gmail.com",
+                  icon: Mail,
+                  label: "Email Sandeep Saini",
+                },
+                {
+                  href: "https://github.com/SandeepSaini5520",
+                  icon: Github,
+                  label: "GitHub profile",
+                },
+                {
+                  href: "https://linkedin.com/in/sandeep-saini-143287231",
+                  icon: Linkedin,
+                  label: "LinkedIn profile",
+                },
+                {
+                  href: "tel:+918295034479",
+                  icon: PhoneCall,
+                  label: "PhoneCall",
+                },
+              ].map(({ href, icon: Icon, label }) => (
                 <a
-                  href="https://linkedin.com/in/sandeep-saini-143287231"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  key={href}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
+                  aria-label={label}
+                  className="p-3 bg-[#C4C4C4] hover:bg-black hover:text-white transition rounded shadow flex items-center justify-center"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Icon size={20} />
                 </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
-                asChild
-              >
-                <a
-                  href="https://github.com/sandeepsaini"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:text-[#4EA5D9] hover:bg-[#4EA5D9]/10"
-                asChild
-              >
-                <a href="mailto:official.sandeepsaini05@gmail.com">
-                  <Mail className="h-5 w-5" />
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
+              ))}
+            </nav>
+          </motion.header>
 
-          {/* Avatar Image */}
+          {/* Right avatar image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
+            variants={avatarVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex justify-center relative"
           >
-            <motion.div whileHover={{ scale: 1.05 }} className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-                <img
-                  src={sandeepAvatar}
-                  alt="Sandeep Saini - Frontend Developer"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div
+              className="relative w-72 h-72 rounded-full overflow-hidden border-4 border-[#C4C4C4] shadow-2xl bg-white"
+              aria-label="Sandeep Saini profile picture"
+            >
+              <img
+                src={sandeepAvatar}
+                alt="Sandeep Saini smiling, wearing a light blue shirt"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              {/* Rotating dashed white border */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-4 rounded-full border-2 border-dashed border-primary/30"
+                className="pointer-events-none absolute inset-0 rounded-full border-2 border-dashed border-black"
+                aria-hidden="true"
               />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-primary rounded-full mt-2"
-            />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

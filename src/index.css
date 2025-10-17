@@ -166,7 +166,11 @@ All colors MUST be HSL.
   }
 
   .text-gradient {
-    background: var(--gradient-primary);
+    background: linear-gradient(
+      to right,
+      #4ea5d9,
+      #2ecc71
+    ); /* Choose one from above */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
