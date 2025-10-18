@@ -37,8 +37,8 @@ const HeroSection = () => {
       </div>
 
       {/* Main content container */}
-      <div className="relative z-10 container mx-auto px-6 py-20 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 container mx-auto md:px-6 md:py-20 md:max-w-7xl">
+        <div className="flex flex-col align-top justify-start md:grid lg:grid-cols-2 gap-48">
           {/* Left text content */}
           <motion.header
             variants={containerVariants}
@@ -48,7 +48,7 @@ const HeroSection = () => {
           >
             <p className="text-xl mb-2 font-medium">Hi, I am</p>
             <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-2 overflow-hidden whitespace-nowrap inline-block"
+              className="text-xl text-transparent bg-clip-text bg-[linear-gradient(90deg,rgba(42,123,155,1)_0%,rgba(49,84,64,1)_50%,rgba(25,167,189,1)_100%)] md:text-black md:text-6xl font-bold mb-1 md:mb-2 overflow-hidden whitespace-nowrap inline-block"
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               animate={{
                 clipPath: [
@@ -69,8 +69,8 @@ const HeroSection = () => {
               Sandeep Saini
             </motion.h1>
 
-            <p className="text-md font-medium text-gray-600 mb-3">
-              Front-end Developer
+            <p className="text-sm font-medium text-gray-600 md:mb-3">
+              (Front-end Developer)
             </p>
 
             {/* Social Icons */}
