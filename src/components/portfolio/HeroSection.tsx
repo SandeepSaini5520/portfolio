@@ -69,7 +69,7 @@ const HeroSection = () => {
               Sandeep Saini
             </motion.h1>
 
-            <p className="text-sm font-medium text-gray-600 md:mb-3">
+            <p className="text-sm font-medium text-gray-600 mb-3">
               (Front-end Developer)
             </p>
 
